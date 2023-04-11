@@ -7,7 +7,11 @@ const signButton = document.getElementById("signButton");
 const userWallet = document.getElementById("userWallet");
 const sigCard = document.querySelector(".sig-card");
 const sigRes = document.getElementById("sig-res");
+const showQR = document.getElementById("showQR");
 const sigResWrap = document.querySelector(".sig-res-wrap");
+const loginCard = document.querySelector(".login-card");
+const qrCard = document.querySelector(".qr-card");
+const qrBack = document.getElementById("qrBack");
 
 function toggleButton() {
   if (!window.ethereum) {
@@ -72,9 +76,20 @@ signButton.addEventListener("click", async () => {
     sigRes.innerText = `Error: ${res}`;
   }
   sigResWrap.classList.remove("hidden");
-  qrcode.clear(); 
-  qrcode.makeCode(res); 
+  showQR.addEventListener("click", toggleQR);
 })
+
+function toggleQR() {
+  loginCard.classList.add("hidden");
+  qrCard.classList.remove("hidden");
+  qrcode.makeCode(sigRes.innerText);
+
+  qrBack.addEventListener("click", () => {
+    qrcode.clear();
+    qrCard.classList.add("hidden");
+    loginCard.classList.remove("hidden");
+  })
+}
 
 function signOutOfMetaMask() {
   window.userWalletAddress = null;
@@ -96,12 +111,12 @@ function toggleSigCard() {
       sigCard.classList.remove('visuallyhidden');
     }, 10);
   } else {
+    showQR.removeEventListener("click", toggleQR);
     sigCard.classList.add('visuallyhidden');    
     sigCard.addEventListener('transitionend', function (e) {
       docTextArea.value = "";
       sigResWrap.classList.add("hidden");
       sigCard.classList.add('hidden');
-      qrcode.clear();
     }, {
       capture: false,
       once: true,
@@ -111,12 +126,10 @@ function toggleSigCard() {
 }
 
 const qrcode = new QRCode(document.getElementById("sig-qr"), {
-	width : 150,
-	height : 150
+	width : 175,
+	height : 175
 });
 
 window.addEventListener("DOMContentLoaded", () => {
   toggleButton();
 });
-
-

@@ -13,11 +13,27 @@
       rel="stylesheet"
     />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/d6810e81eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
     <title>Sign Message Off-chain</title>
   </head>
   <body>
     <main>
-     
+      <div class="qr-card hidden">
+        <div id="prompt-heading-bar">
+          <h2 id="prompt-heading">Signature QR Code</h2>
+        </div>
+        <div id="sig-qr"></div>
+        <button id="qrBack" onclick="">Back</button>
+      </div>
       <div class="login-card">
         <h3 id="userWallet">Click the button to launch Metamask</h3>
         <button id="loginButton" onclick="">Log in with Metamask</button>
@@ -30,7 +46,7 @@
           <div class="sig-res-wrap hidden">         
             <h3>Signature</h3>
             <p id="sig-res"></p>
-            <div id="sig-qr"></div>
+            <i class="fa-solid fa-qrcode fa-3x" id="showQR"></i>
           </div>
         </div>
         
