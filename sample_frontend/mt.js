@@ -64,25 +64,35 @@ async function personalSign(message) {
 }
 
 signButton.addEventListener("click", async () => {
+  showQR.removeEventListener("click", toggleQR);
   const message = docTextArea.value;
   if (!message) return;
   const res = await personalSign(message);
   if (res.slice(0, 2) === "0x") {
     sigRes.style.color = "#f4f4f4";
     sigRes.innerText = res;
+    window.signedMsg = message;
+    window.signature = res;
+    qrcode.clear();
+    qrcode.makeCode(`
+      {
+        "signer": "${window.userWalletAddress}",
+        "msg": "${message}",
+        "sig": "${res}"
+      }
+    `);
+    showQR.addEventListener("click", toggleQR);
   }
   else {
     sigRes.style.color = "#ec1c1c";
     sigRes.innerText = `Error: ${res}`;
   }
   sigResWrap.classList.remove("hidden");
-  showQR.addEventListener("click", toggleQR);
 })
 
 function toggleQR() {
   loginCard.classList.add("hidden");
   qrCard.classList.remove("hidden");
-  qrcode.makeCode(sigRes.innerText);
 
   qrBack.addEventListener("click", () => {
     qrcode.clear();
