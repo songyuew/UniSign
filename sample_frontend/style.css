@@ -96,11 +96,19 @@ body {
   background: rgba(80, 29, 29, 0.13);
 }
 
+#sig-qr img {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #sig-res {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 10px;
-  word-break:break-all;
+  margin-bottom: 10px;
+  font-weight: 1000;
+  word-break: break-all;
 }
 
 @keyframes movingGradient {

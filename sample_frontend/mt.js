@@ -72,6 +72,8 @@ signButton.addEventListener("click", async () => {
     sigRes.innerText = `Error: ${res}`;
   }
   sigResWrap.classList.remove("hidden");
+  qrcode.clear(); 
+  qrcode.makeCode(res); 
 })
 
 function signOutOfMetaMask() {
@@ -99,6 +101,7 @@ function toggleSigCard() {
       docTextArea.value = "";
       sigResWrap.classList.add("hidden");
       sigCard.classList.add('hidden');
+      qrcode.clear();
     }, {
       capture: false,
       once: true,
@@ -108,8 +111,8 @@ function toggleSigCard() {
 }
 
 const qrcode = new QRCode(document.getElementById("sig-qr"), {
-	width : 100,
-	height : 100
+	width : 150,
+	height : 150
 });
 
 window.addEventListener("DOMContentLoaded", () => {
