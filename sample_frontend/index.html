@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
+    <title>Sign Message Off-chain</title>
+  </head>
+  <body>
+    <main>
+     
+      <div class="login-card">
+        <h3 id="userWallet">Click the button to launch Metamask</h3>
+        <button id="loginButton" onclick="">Log in with Metamask</button>
+        <div class="sig-card hidden visuallyhidden">
+          <h3 id="sig-prompt">Input the message to sign</h3>
+          <div class="textAreaWrap">
+            <textarea id="docTextArea"></textarea>
+          </div>
+          <button id="signButton" onclick="">Sign</button>
+          <div class="sig-res-wrap hidden">         
+            <h3>Signature</h3>
+            <p id="sig-res"></p>
+            <div id="sig-qr"></div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </main>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="qrcode.js"></script>
+    <script src="./mt.js" type="module"></script>
+  </body>
+</html>

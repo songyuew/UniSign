@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+    to bottom right,
+    #4affde 0%,
+    #5b9dff 40%,
+    #ff34d2 100%
+  );
+  background-size: 200% 200%;
+  animation: movingGradient 5s linear infinite alternate;
+}
+
+body {
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+.login-card {
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+}
+
+.sig-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 2s linear;
+}
+
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
+}
+
+.login-card h3 {
+  font-family: "Poppins", sans-serif;
+  color: #f4f4f4;
+}
+
+.textAreaWrap {
+  border-radius: 20px;
+  width: 280px;
+  height: 120px;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: #f4f4f4 1px solid;
+  background-color: #d5d2d257;
+}
+
+#docTextArea {
+  width: 95%;
+  height: 95%;
+  background-color: transparent;
+  border: none;
+  resize: none;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#docTextArea:focus {
+  outline: none;
+}
+
+.login-card button, .sig-card button {
+  font-family: "Poppins", sans-serif;
+  font-style: initial;
+  font-weight: 600;
+  font-size: 20px;
+  width: 240px;
+  background: transparent;
+  border: #f4f4f4 1px solid;
+  border-radius: 20px;
+  margin: 15px;
+  padding: 12px;
+  color: aliceblue;
+  transition: all 0.5s ease;
+}
+
+.login-card button:hover {
+  cursor: pointer;
+  background: rgba(80, 29, 29, 0.13);
+}
+
+#sig-res {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 16px;
+  margin-top: 10px;
+  word-break:break-all;
+}
+
+@keyframes movingGradient {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 100%;
+  }
+}
