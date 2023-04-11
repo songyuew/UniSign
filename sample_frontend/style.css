@@ -20,8 +20,9 @@ main {
 }
 
 body {
-  overflow: hidden !important;
-  max-width: 100% !important;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-width: 100%;
 }
 
 .login-card {
