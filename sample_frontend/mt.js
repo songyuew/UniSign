@@ -95,7 +95,6 @@ function toggleQR() {
   qrCard.classList.remove("hidden");
 
   qrBack.addEventListener("click", () => {
-    qrcode.clear();
     qrCard.classList.add("hidden");
     loginCard.classList.remove("hidden");
   })
